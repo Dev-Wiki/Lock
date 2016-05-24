@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">锁屏</string>
+    <string name="no_permission_title">提示</string>
+    <string name="no_permission_msg"></string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+</resources>
