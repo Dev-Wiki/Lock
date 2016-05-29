@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">锁屏</string>
+    <string name="app_name">一键锁屏</string>
     <string name="device_hint">激活后才能使用一键锁屏功能</string>
     <string name="no_permission_title">提示</string>
     <string name="no_permission_msg">您未激活设备管理器,无法使用一键锁屏功能.是否再次激活?</string>
