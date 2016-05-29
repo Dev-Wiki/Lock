@@ -7,11 +7,8 @@ import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 public class MainActivity extends Activity {
-
-    private static final String TAG = "MainActivity";
 
     private static final int REQUEST_ADMIN_CODE = 0x001;
 
@@ -45,14 +42,13 @@ public class MainActivity extends Activity {
         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName);
 
         //描述(additional explanation)
-        intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "------ 其他描述 ------");
+        intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_hint));
 
         startActivityForResult(intent, REQUEST_ADMIN_CODE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        Log.i(TAG, "onActivityResult: " + requestCode + "," + resultCode + "," + data.toString());
         if (requestCode == REQUEST_ADMIN_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 lockScreen();
@@ -66,6 +62,7 @@ public class MainActivity extends Activity {
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.no_permission_title)
                 .setMessage(R.string.no_permission_msg)
+                .setCancelable(false)
                 .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
