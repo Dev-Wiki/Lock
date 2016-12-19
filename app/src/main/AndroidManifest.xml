@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.devwiki.lock">
+          package="net.devwiki.lock">
 
     <application
         android:allowBackup="true"
@@ -10,24 +10,34 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <receiver
             android:name=".AdminReceiver"
-            android:permission="android.permission.BIND_DEVICE_ADMIN"
             android:enabled="true"
-            android:exported="true">
-            <meta-data android:name="android.app.device_admin"
-                android:resource="@xml/lock_screen" />
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/lock_screen"/>
             <intent-filter>
                 <action
-                    android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                    android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
             </intent-filter>
         </receiver>
-    </application>
 
+        <receiver android:name=".LockProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="net.devwiki.lock.action.WIDGET_LOCK"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/lock_widget"/>
+        </receiver>
+    </application>
 </manifest>
