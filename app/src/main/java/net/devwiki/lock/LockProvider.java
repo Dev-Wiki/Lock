@@ -7,10 +7,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.RemoteViews;
-
-import net.devwiki.log.DevLog;
 
 /**
  * 锁屏的Provider
@@ -26,14 +23,12 @@ public class LockProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
-        DevLog.d("onUpdate");
         id = appWidgetIds[0];
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        DevLog.d("onReceive, action:" + intent.getAction());
         if (intent.getAction().equals(AppWidgetManager.ACTION_APPWIDGET_UPDATE)) {
             setClickListener(context);
         }

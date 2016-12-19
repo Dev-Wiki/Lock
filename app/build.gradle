@@ -20,5 +20,4 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'net.devwiki.log:log:0.0.2'
 }
