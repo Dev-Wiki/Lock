@@ -4,7 +4,7 @@
     android:initialLayout="@layout/layout_widget"
     android:minHeight="48dp"
     android:minWidth="48dp"
-    android:previewImage="@drawable/ic_lock_widget"
+    android:previewImage="@drawable/ic_lock_192"
     android:resizeMode="none"
     android:widgetCategory="home_screen"
     android:updatePeriodMillis="86400000">
